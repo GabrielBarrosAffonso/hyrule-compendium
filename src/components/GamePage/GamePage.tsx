@@ -7,7 +7,6 @@ const ItemPage = () => {
     const [item, setItem] = useState<any>()
     const param = useParams()
 
-
     useEffect(() => {
         async function getItem(){
             try{
@@ -18,6 +17,7 @@ const ItemPage = () => {
                 console.error(err)
             }
         }
+        
         getItem()
     }, [param.id])
 

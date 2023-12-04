@@ -1,9 +1,13 @@
 import './App.css';
 import { useThemeContext } from './context/themeContext';
 import { capitalizeFirstLetter, categories } from './constants/listing'
+import { useFilter } from './components/hooks/useFilter';
 
 function App() {
-  const { loading, filteredList, sort, setSort, setCategory } = useThemeContext()
+  const { loading, filteredList, sort, compendium, setSort, setCategory } = useThemeContext()
+  const filteredValues = useFilter(compendium, ["materials","monsters"])
+
+  console.info(`FILTERED VALUES`, filteredValues)
 
   return (
     <div className="App">
