@@ -22,11 +22,7 @@ export interface APIResponse {
 export interface ThemeInterface {
     compendium: APIResponse[], 
     loading: boolean,
-    filteredList: APIResponse[],
-    sort: string,
     setCompendium: React.Dispatch<React.SetStateAction<APIResponse[]>>,
-    setCategory: React.Dispatch<React.SetStateAction<string | undefined>>
-    setSort: React.Dispatch<React.SetStateAction<string>>
 }
 
 export type SortFunction = (a: APIResponse, b:APIResponse) => number
