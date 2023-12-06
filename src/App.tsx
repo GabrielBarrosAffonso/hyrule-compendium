@@ -6,16 +6,17 @@ import Select from 'react-select'
 import { useState } from 'react';
 
 function App() {
-  const { loading, sort, compendium, setSort, setCategory } = useThemeContext()
+  const { loading, compendium, setCategory } = useThemeContext()
   const [ filters, setFilters ] = useState<string[]>([]) 
-  const filteredValues = useFilter(compendium, filters)
+  const [sort, setSort] = useState<string>('name')
+  const filteredValues = useFilter(compendium, filters, sort)
 
   const options = [
     { value: 'creatures', label: 'Creatures' },
     { value: 'equipment', label: 'Equipment' },
     { value: 'materials', label: 'Materials'},
     { value: 'monsters', label: 'Monsters' },
-    { values: 'treasure', label: "Treasure" }
+    { value: 'treasure', label: "Treasure" }
   ]
 
   return (

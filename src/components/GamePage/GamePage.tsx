@@ -2,9 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { capitalizeFirstLetter } from "../../constants/listing"
+import { APIResponse } from "../typings/typings"
 
 const ItemPage = () => {
-    const [item, setItem] = useState<any>()
+    const [item, setItem] = useState<APIResponse>()
     const param = useParams()
 
     useEffect(() => {
@@ -20,10 +21,6 @@ const ItemPage = () => {
         
         getItem()
     }, [param.id])
-
-    useEffect(() => {
-        console.info(item)
-    }, [item])
 
     return(
         <>
